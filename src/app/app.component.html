@@ -1,0 +1,19 @@
+<router-outlet>
+      <div class="py-5 shadow bg-white px-5">
+            <a mat-button href="" ><img src="../assets/img/logo.jpg" class="object-contain rounded-full " style="width: 5em;" alt=""></a>
+           
+
+            <button mat-button [matMenuTriggerFor]="belowMenu">Nos étudiants</button>
+            <mat-menu #belowMenu="matMenu" yPosition="below">
+                  <button mat-menu-item><a href="">La liste des étudiants</a></button>
+                  <button mat-menu-item>Ajouter un étudiant</button>
+            </mat-menu>
+
+      </div>
+      <main class="py-6 px-4 sm:p-6 md:py-10 md:px-8">
+            <app-student-list class="w-full h-60  rounded-lg sm:h-52 sm:col-span-2 lg:col-span-full"></app-student-list>
+
+      </main>
+
+
+      <router-outlet />
