@@ -43,8 +43,8 @@
             <ng-container matColumnDef="action">
                 <th mat-header-cell *matHeaderCellDef> <span class="font-bold">Action</span> </th>
                 <td mat-cell *matCellDef="let element">
-                    <button class="material-icons-outlined text-green-900 me-3">edit</button>
-                    <button class="material-icons-round text-red-700 btn" (click)="remove(element.numero)">delete</button>
+                    <button class="material-icons-outlined text-green-900 bg-green-300 shadow-lg rounded-lg me-3">edit</button>
+                    <button class="material-icons-round text-red-700 bg-red-300 shadow-lg rounded-lg" (click)="remove(element.numero)">delete</button>
                 </td>
             </ng-container>
 
