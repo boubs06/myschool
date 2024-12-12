@@ -11,11 +11,12 @@ import { MatBottomSheet } from '@angular/material/bottom-sheet';
   styleUrl: './student-list.component.css'
 })
 export class StudentListComponent implements OnInit {
-  displayedColumns: string[] = ['numero', 'prenom', 'nom', 'classe'];
-  dataSource = new MatTableDataSource<PeriodicElement>(ELEMENT_DATA);
+  displayedColumns: string[] = ['numero', 'prenom', 'nom', 'classe', 'action'];
+  dataSource 
   data !: any
   @ViewChild(MatPaginator) paginator: MatPaginator;
   ngOnInit(): void {
+    this.dataSource = new MatTableDataSource<PeriodicElement>(ELEMENT_DATA);
     this.dataSource.paginator = this.paginator;
   }
   constructor(private bottomSheet: MatBottomSheet) { }
@@ -23,6 +24,7 @@ export class StudentListComponent implements OnInit {
     this.dataSource.paginator = this.paginator;
 
   }
+  
 
 
 
@@ -34,8 +36,12 @@ export class StudentListComponent implements OnInit {
       console.log('data :::: ', this.dataSource.filteredData.push(data.result));
       console.log('dataSource :', this.dataSource);
       this.ngAfterViewInit()
-  });
-}
+    });
+  }
+  remove(numero : string) {
+    console.log("suppression : ",numero)
+    this.dataSource.filteredData = this.dataSource.filteredData.filter(item => item.numero !== numero);
+  }
 }
 
 export interface PeriodicElement {

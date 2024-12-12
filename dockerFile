@@ -1,0 +1,15 @@
+# Étape 1 : Construction de l'application Angular
+FROM node:18 as build
+WORKDIR /app
+COPY package*.json ./
+RUN npm install
+COPY . .
+RUN npm run build --prod
+
+# Étape 2 : Serveur web pour héberger les fichiers statiques
+FROM nginx:1.25
+COPY --from=build /app/dist/<nom-du-projet> /usr/share/nginx/html
+
+# Configuration par défaut de NGINX
+EXPOSE 80
+CMD ["nginx", "-g", "daemon off;"]
