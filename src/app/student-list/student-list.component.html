@@ -1,12 +1,17 @@
 <div class="container mx-auto p-5 bg-white shadow rounded-lg ">
     <div class="flex justify-between">
-        <div class="my-3 ms-4">
-            <h1 class="text-lg font-bold mt-4">La liste des étudiants</h1>
+        <div class="my-3 ms-4 py-2 px-3 bg-gray-100 w-full me-5 shadow rounded-lg">
+            <h1 class="text-lg font-bold py-2 px-3 ">La liste des étudiants</h1>
         </div>
 
-        <button class="bg-black text-white py-2 px-3 my-3 shadow rounded-lg me-3 " type="button" mat-raised-button
+        <button class="bg-black text-white px-3 my-2 shadow rounded-lg me-3 " type="button" mat-raised-button
             (click)="openBottomSheet()">Ajouter un
             étudiant</button>
+    </div>
+    <div class="flex justify-end">
+        <div class="my-2 ms-4  pe-3 bg-gray-50 me-5 shadow rounded-full">
+            <input type="text" placeholder="Recherche" class="w-full py-3 ps-3 border border-1 rounded-full border-gray-300" (click)="recherche($event)">
+        </div>
     </div>
     <div class="mat-elevation-z1 m-5">
         <table mat-table [dataSource]="dataSource">

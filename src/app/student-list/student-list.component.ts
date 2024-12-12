@@ -42,6 +42,10 @@ export class StudentListComponent implements OnInit {
     console.log("suppression : ",numero)
     this.dataSource.filteredData = this.dataSource.filteredData.filter(item => item.numero !== numero);
   }
+  recherche(value) {
+    console.log("objet trouvé : ",this.dataSource.filteredData.filter(item => item.numero == value))
+    this.dataSource.filteredData = this.dataSource.filteredData.filter(item => item.numero == value);
+  }
 }
 
 export interface PeriodicElement {
